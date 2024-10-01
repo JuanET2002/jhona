@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(to right, #FFA500, #800080); 
+    }
+
+    .calculator {
+      background-color: linear-gradient(to right, #FFA500, #800080);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .display {
+      background-color: linear-gradient(to left, #FFA500, #800080); 
+      padding: 10px;
+      border-radius: 50px;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 80px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      background-color:linear-gradient(to right, #FFA500, #800080); 
+      color: #333;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color:linear-gradient(to right, #FFA500, #800080);  
+    }
+
+    .special {
+      background-color: linear-gradient(to right, #FFA500, #800080);
+    }
+
+    .special:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+</head>
+<body>
+
+<div class="calculator">
+  <div class="display">
+    <input type="text" id="display" readonly>
+  </div>
+  <div class="buttons">
+    <button onclick="appendNumber('7️')">7️⃣</button>
+    <button onclick="appendNumber('8️')">8️⃣</button>
+    <button onclick="appendNumber('9️')">9️⃣</button>
+    <button class="special" onclick="performOperation('/')">➗</button>
+    <button onclick="appendNumber('4️')">4️⃣</button>
+    <button onclick="appendNumber('5️')">5️⃣</button>
+    <button onclick="appendNumber('6️')">6️⃣</button>
+    <button class="special" onclick="performOperation('*')">✖️</button>
+    <button onclick="appendNumber('1️')">1️⃣</button>
+    <button onclick="appendNumber('2️')">2️⃣</button>
+    <button onclick="appendNumber('3️')">3️⃣</button>
+    <button class="special" onclick="performOperation('−')">➖</button>
+    <button onclick="appendNumber('0️')">0️⃣</button>
+    <button onclick="appendNumber('.')">🧿</button>
+    <button onclick="calculate()">🟰</button>
+    <button class="special" onclick="performOperation('+')">➕</button>
+    <button onclick="clearDisplay()">❌</button>
+    <button class="special" onclick="calculateSquareRoot()">√</button>
+    <button class="special" onclick="calculateSquare()">x²</button>
+    <button class="special" onclick="isEven()">Par/Impar</button>
+    <button class="special" onclick="isPrime()">Primo</button>
+    <a href="https://www.youtube.com/watch?v=QwMlgfMK6fQ" target="_blank" rel="noopener noreferrer">
+      <button class="link-button">Tutorial HTML5</button>
+    </a>
+  </div>
+</div>
+
+<script>
+  let display = document.getElementById('display');
+  let operator = null;
+  let firstNumber = null;
+
+  function appendNumber(number) {
+    display.value += number;
+  }
+
+  function performOperation(op) {
+    firstNumber = parseFloat(display.value);
+    operator = op;
+    display.value += op;
+  }
+
+  function calculate() {
+    let secondNumber = parseFloat(display.value.substring(display.value.lastIndexOf(operator) + 1));
+    let result;
+
+    switch (operator) {
+      case '+':
+        result = firstNumber + secondNumber;
+        break;
+      case '-':
+        result = firstNumber - secondNumber;
+        break;
+      case '*':
+        result = firstNumber * secondNumber;
+        break;
+      case '/':
+        if (secondNumber === 0) {
+          result = "Error en la diavision";
+        } else {
+          result = firstNumber / secondNumber;
+        }
+        break;
+    }
+
+    display.value = result;
+    operator = null;
+    firstNumber = null;
+  }
+
+  function clearDisplay() {
+    display.value = '';
+  }
+
+  function calculateSquareRoot() {
+    let num = parseFloat(display.value);
+    if (num < 0) {
+      display.value = "No se debe usar numero negativos";
+    } else {
+      display.value = Math.sqrt(num);
+    }
+  }
+
+  function calculateSquare() {
+    let num = parseFloat(display.value);
+    display.value = Math.pow(num, 2);
+  }
+
+  function isEven() {
+    let num = parseFloat(display.value);
+    display.value = (num % 2 === 0) ? "par" : "Impar";
+  }
+
+  function isPrime() {
+    let num = parseFloat(display.value);
+    if (num <= 1) {
+      display.value = "No es primo";
+      return;
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) {
+        display.value = "No es primo";
+        return;
+      }
+    }
+    display.value = "Es primo";
+  }
+</script>
+
+</body>
+</html>
