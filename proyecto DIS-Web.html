@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musica y lo que hay que saber</title>
+    <style>
+    body {
+        font-family: 'Century Schoolbook', sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh; 
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.9), rgba(86, 85, 172, 0.8));
+        transition: background-color 0.5s;
+
+
+
+        background: url('https://www.nus.agency/wp-content/uploads/elementor/thumbs/musica-arte-scaled-q3s9zjmsgnvmn73optv6vm808qaju2jakn089uojbg.jpg') no-repeat center center fixed;
+        background-size: cover;
+        }
+    
+        header{
+            box-sizing: border-box;
+            background: linear-gradient(45deg, rgba(255, 0, 0, 0.9), rgba(86, 85, 172, 0.8));
+            color: white;
+            text-align: center;
+            padding: 10px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 10px rgba(46, 5, 194, 0.3);
+
+        }
+        footer {
+            background: linear-gradient(45deg, rgba(255, 0, 0, 0.9), rgba(86, 85, 172, 0.8));
+            color: white;
+            text-align: center;
+            padding: 10px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 10px rgba(216, 10, 171, 0.3);
+
+        }
+        header div {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 0 8px 7px;
+        }
+        header div a :hover {
+            background-color: rgba(216, 10, 171, 0.3);
+            color: rgba(216, 10, 171, 0.3);
+            transform: scale(1.3);
+        
+        }
+        header div :active{
+            transform: scale(0.8);
+
+        }
+        header div div a img{
+            margin-left: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        header div div a{
+            background-color: rgba(216, 10, 171, 0.3);
+            color: white;
+            padding: 8px;
+            margin-left: 10px;
+            border-radius: 9px; 
+            box-shadow: 0 0 10px #aaa;
+            text-decoration-line: none;
+            text-align: center;
+        }
+    
+        .main-content {
+            text-align: center;
+            background: linear-gradient(45deg, rgba(255, 0, 0, 0.9), rgba(86, 85, 172, 0.8));
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            margin: 30px;
+            animation: fadeIn 1s ease-out;
+        }
+    
+        .section {
+            background: linear-gradient(45deg, rgba(255, 0, 0, 0.9), rgba(86, 85, 172, 0.8));
+            padding: 60px;
+            margin: 60px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 12px rgba(216, 10, 171, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }   
+    
+        .section:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(216, 10, 171, 0.3);
+        }
+    
+        .section div {
+            background: rgba(0, 0, 0, 0.8);
+            color: rgb(255, 255, 255);
+            padding: 25px;
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s;
+        }
+    
+        .section div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+    
+        .menu {
+            background-color: rgba(216, 10, 171, 0.3);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .my-iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        @media (max-width: 600px) {
+        .my-iframe {
+        width: 50%; 
+        height: 200px;
+        }
+        }      
+
+        @media (min-width: 601px) and (max-width: 1200px) {
+        .my-iframe {
+            width: 100%; 
+            height: 650px; 
+        }
+        }
+
+    
+        .menu:hover {
+            background-color: darkred;
+            transform: scale(1.1);
+        }
+    
+        .carousel {
+            position: relative;
+            width: 80%;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 2px solid #fff;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+    
+        .carousel-track {
+            display: flex;
+            transition: transform 0.7s ease-in-out;
+        }
+    
+        .carousel-slide {
+            min-width: 100%;
+        }
+    
+        .carousel img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+    
+        .carousel img:hover {
+            transform: scale(1.5);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+    
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fff;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 1.8em;
+            color: black;
+            border-radius: 8px;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+        }
+    
+        .carousel-button:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+    
+        .carousel-button.left {
+            left: auto;
+        }
+    
+        .carousel-button.right {
+            right: auto;
+        }
+    
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 20;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    
+        .modal-content {
+            background-color: rgba(216, 10, 171, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            animation: scaleIn 0.5s ease-in-out;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            max-height: 80%;
+            overflow-y: auto;
+        }
+    
+        @keyframes scaleIn {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+    
+        .modal img {
+            width: 450px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    
+        .close-button {
+            background-color: linear-gradient(45deg, rgba(255, 0, 0, 0.9), rgba(86, 85, 172, 0.8));
+            color: rgb(255, 7, 168);
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+    
+        .close-button:hover {
+            background-color: linear-gradient(45deg, rgba(255, 0, 0, 0.9), rgba(86, 85, 172, 0.8));
+        }
+    
+        .anchor-links {
+            text-align: center;
+            margin: 30px 0;
+        }
+    
+        .anchor-links a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #f7f7f7;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+    
+        .anchor-links a:hover {
+            color:rgba(216, 10, 171, 0.3);
+        }
+    
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #f4f7f4;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    
+        .destination {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin: 30px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+    
+        .destination:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+    
+        h2 {
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+        }
+        .back-to-menu{
+            background-color:  linear-gradient(45deg, rgba(255, 0, 0, 0.9), rgba(86, 85, 172, 0.8));
+            color: linear-gradient(45deg, rgba(255, 0, 0, 0.9), rgba(86, 85, 172, 0.8));
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+    
+        th {
+            background-color: rgba(216, 10, 171, 0.3);
+            color: white;
+        }
+    
+        @media (max-width: 600px) {
+            header, footer {
+                padding: 10px;
+            }
+            
+            .carousel-button {
+                padding: 8px;
+                font-size: 1.4em;
+            }
+    
+            .modal-content {
+                width: 90%;
+                max-height: 70%;
+            }
+    
+            .main-content {
+                padding: 20px;
+            }
+        }
+
+    </style>
+        
+</head>
+<body>
+    <header>
+        <h1>La Musica </h1>
+        <div>
+            <div>
+            <a href="#musica clasica">Musica Clasica</a>
+            <a href="#musica contemporanea">Musica Contemporanea</a>
+            <a href="#musica moderna">Calculadora</a>
+            <a href="#musica barroca">Musica Barroca</a>
+            </div>
+
+            <div>
+                <a href="https://accounts.spotify.com/es-ES/login" target="_blank">
+                <img src="https://w7.pngwing.com/pngs/879/271/png-transparent-spotify-computer-icons-streaming-media-music-home-icons-hand-logo-music-download-thumbnail.png" alt="facebook">
+                </a>
+                <a href="https://www.instagram.com/" target="_blank">
+                <img src="https://w7.pngwing.com/pngs/343/766/png-transparent-logo-computer-icons-white-instagram-logo-desktop-wallpaper-spot-color-thumbnail.png" alt="?" >
+                </a>
+                <a href="https://youtube.com" target="_blank">
+                <img src="https://w7.pngwing.com/pngs/115/555/png-transparent-youtube-computer-icons-logo-silhouette-youtube-angle-desktop-wallpaper-w-kamau-bell-thumbnail.png" alt="YouTube" >
+                </a>
+            </div>
+            
+        </div>
+    </header>
+    <section class="main-content">
+        <h1>El Grande y Hermoso Mundo De La Musica</h1>
+        <p>¡Esta una breve pagina que explica lo necesario para empezar a ser un buen musico!</p>
+
+        <div class="carousel">
+            <button class="carousel-button left">&#10094;</button>
+            <button class="carousel-button right">&#10095;</button>
+            <div class="carousel-track">
+                <div class="carousel-slide">
+                    <img src="https://img.freepik.com/foto-gratis/fondo-musical-volumetrico-clave-sol-notas-generativas-ai_169016-29576.jpg" alt="" data-modal="modal1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://png.pngtree.com/thumb_back/fh260/background/20210918/pngtree-note-music-logo-watercolor-background-image_903000.png" alt="" data-modal="modal2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://img.freepik.com/foto-gratis/fondo-musical-volumetrico-clave-sol-notas-generativas-ai_169016-29575.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1727654400&semt=ais_hybrid" alt="" data-modal="modal3">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://img.freepik.com/fotos-premium/notas-musicales-mezcladas-mezclador-color-agua-estilo-dibujos-animados_1091144-57202.jpg" alt="" data-modal="modal4">
+            </div>
+            
+        </div>
+
+        <div class="section" id="musica clasica">
+            <h2>Musica</h2>
+            <div>
+                <p>Conoce mas caracteristicas de la musica<a href="intentoPrueba.html"> aquí</a> para más información.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Informacion</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="#">Clasica</a></td>
+                            <td class="description">Conoce la musica clasica</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">Contenporanea</a></td>
+                            <td class="description">Descubre la musica contemporanea</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">Moderna</a></td>
+                            <td class="description">aprende acerca de la musica moderna</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">Acordes</a></td>
+                            <td class="description">Descubre como crear acordes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="my-iframe">
+                <iframe src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhnWWjps9oZ4xThLuXAyzSWAEBkbDNJ-S2sg&s" height="500" width="350"></iframe>
+                <a href="https://www.youtube.com/watch?v=AajmRnnTq_A&t=2s"> haz click</a>
+            </div>
+            <button class="back-to-menu" onclick="location.href='#'">Volver al Menú</button>
+        </div>
+
+        <div class="section" id="contemporanea">
+            <h2><Canvas>Musica Basica</Canvas></h2>
+            
+            <div class="my-iframe">
+                
+                <iframe src="https://youtu.be/GY5y4Rp3tU8" height="500" width="350" ></iframe></div>
+                <a href="https://youtu.be/GY5y4Rp3tU8"> haz click</a>
+            <div>Uno de los estilos musicales mas revolucionarios
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Destino</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="#">Clasica</a></td>
+                            <td class="description">La música clásica occidental es un tipo de música académica que se basa principalmente en la música producida o derivada de las tradiciones de la música litúrgica y profana en Occidente, teniendo como foco mayoritario Europa Occidental.</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">Contemporanea</td>
+                            <td class="description">La música académica contemporánea es la que se ha creado a partir de la retirada del modernismo musical a mediados de los años setenta, aunque en ocasiones se suele incluir de forma más amplia a todas las formas de la música postonal luego de la muerte de Anton Webern y del término de la Segunda Guerra Mundial (1939-1945). </td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">Moderna</td>
+                            <td class="description">La nueva música​ o moderna se refiere a la música de la tradición europea escrita (artística), elaborada aproximadamente entre 1910 y 1975. Fue precedida por la música del romanticismo y postromanticismo, y sucedida por la música clásica contemporánea. El momento exacto en el cual terminó el modernismo e inició la música contemporánea, es todavía motivo de debate entre los expertos.</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">Barroca</a></td>
+                            <td class="description">La música barroca o música del Barroco es el estilo musical europeo, relacionado con la época cultural homónima, que abarca aproximadamente desde el nacimiento de la ópera en torno a 1600 hasta la muerte de Johann Sebastian Bach, en 1750. Es uno de los estilos de la, generalmente llamada, música clásica o culta europea, antecedido por la música del Renacimiento y seguido por la música del Clasicismo.</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">teoria musicales</a></td>
+                            <td class="description">La teoría musical suele ocuparse de describir cómo los músicos y compositores hacen música, incluyendo los sistemas de afinación y los métodos de composición, entre otros temas. Debido a la concepción cada vez más amplia de lo que constituye la música, una definición más inclusiva podría ser la consideración de cualquier fenómeno sonoro, incluido el silencio. Sin embargo, esta no es una pauta absoluta; por ejemplo, el estudio de la "música" en el plan de estudios universitario de artes liberales Quadrivium, que era común en la Europa medieval, era un sistema abstracto de proporciones que se estudiaba cuidadosamente a distancia de la práctica musical real.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button class="back-to-menu" onclick="location.href='#'">Volver al Menú</button>
+
+        </div>
+
+    
+        <div class="section" id="musica moderna">
+            <h2>calculadora</h2>
+            <div class="section-2-content">
+                <div class="section-2-text">
+                    <p>
+                        <a href="Zamora Jhonatan.html">CALCULADORA_WEB</a>.</p>
+                        <iframe src="file:///C:/Users/jhona/OneDrive/Documentos/Dis-Web/Zamora%20Jhonatan.html" height="500" width="720"></iframe>
+                    <div class="https://w7.pngwing.com/pngs/773/130/png-transparent-data-download-downloader-downloading-transfer-free-system-and-user-interface-icon-thumbnail.png">
+                        <a href="file:///C:/Users/jhona/OneDrive/Documentos/Dis-Web/Zamora%20Jhonatan.html" class="Calculadora Web">Descargar</a>
+                    </div>
+                    <button class="back-to-menu" onclick="location.href='#'">Volver al Menú</button>
+                </div>
+            </div>
+            <div>Esta calculadora tiene la siguite diferencia que sirve en el calculo de numeros primos, numeros pares, ademas de los usos basicos de una calculadora comun y corriente para esta ser usada entre amigo como ser el calculo de la cueta entre cierta cantidad de personas.</div>   
+        </div>
+        <div class="section" id="musica barroca">
+            <h2>les Motives</h2>
+            <table>
+                <tr>
+                <th>cual es su gracia como tal de un (Les motiives), Es dar a enteder una situa cion en concreto.</th>
+                </tr>
+                <tr>
+                <td>Como ser:</td>
+                <td>El mometo en que darth Vader camina </td>
+                <td>Cuando aparece Tom Cruise corriendo</td>
+                </tr>
+                </table>
+            <div>
+                <iframe src="https://docs.google.com/document/d/1gkPbIW1hIPMR179MFzavYzlk-_ZyztJuvr_6OJYhFJU/edit" height="500" width="720"></iframe></div>
+            <div>
+                <button class="back-to-menu" onclick="location.href='#'">Volver al Menú</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer>
+        <footer>
+            <a href="https://facebook.com" target="_blank">
+                <img src="https://i.pinimg.com/564x/fe/19/69/fe19692e5ca49ff5c7a0f060014b88c8.jpg" alt="facebook" style="width: 40px">
+            </a>
+            <a href="https://twitter.com" target="_blank">
+                <img src="https://i.pinimg.com/236x/6f/ab/d7/6fabd741f163db594043a81f4a74ae49.jpg" alt="Twitter" style="width: 40px">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="https://i.pinimg.com/236x/21/d6/7f/21d67f1d6b3be5bb2e39395311c77fc6.jpg" alt="instagram" style="width: 40px">
+            </a>
+            <a href="https://open.spotify.com/intl-es" target="_blank">
+                <img src="https://w7.pngwing.com/pngs/4/438/png-transparent-spotify-logo-spotify-mobile-app-computer-icons-app-store-music-free-icon-spotify-miscellaneous-logo-music-download-thumbnail.png" alt="spotify" style="width: 40px">
+            </a>
+            <a href="https://youtube.com" target="_blank">
+                <img src="https://i.pinimg.com/564x/8d/fc/e5/8dfce5071c0b2972a4e4e1fa1abd610f.jpg" alt="YouTube" style="width: 40px">
+            </a>
+        </footer>
+        <p>© 2024 WordMusic. Todos los derechos reservados. Jhonatan Zamora Mansilla</p>
+    </footer>
+
+    <div class="modal" id="modal1">
+        <div class="modal-content">
+            <h2>musica clasica</h2>
+            <p>esta no es faci de describir por lo siguiente</p>
+            <table>
+                <tr>
+                    <th>aplicacion</th>
+                    <th>motivo o enfasis</th>
+                    <th>Tempos</th>
+                    <th>Ritmica</th>
+                    <th>Teoria</th>
+                </tr>
+                <tr>
+                    <td href="https://youtu.be/nJE5ZxEuS3Q">https://youtu.be/nJE5ZxEuS3Q</td>
+                </tr>
+
+            </table>
+            <img src="https://img.freepik.com/foto-gratis/fondo-musical-volumetrico-clave-sol-notas-generativas-ai_169016-29576.jpg" alt="musica clasica">
+            <div class="modal-content">
+            </div>  
+            <button class="close-button">Cerrar</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modal2">
+        <div class="modal-content">
+            <h2>musica contemporanea</h2>
+            <table>
+                <tr>
+                    <th>aplicacion</th>
+                    <th>motivo o enfasis</th>
+                    <th>Tempos</th>
+                    <th>Ritmica</th>
+                    <th>Teoria</th>
+                </tr>
+                <tr>
+                    <td href="https://youtu.be/b_YHE4Sx-08?list=RDQMVoOEogfOCDk">https://youtu.be/b_YHE4Sx-08?list=RDQMVoOEogfOCDk</td>
+                </tr>
+
+            </table>
+            <img src="https://png.pngtree.com/thumb_back/fh260/background/20210918/pngtree-note-music-logo-watercolor-background-image_903000.png" alt="Musica contemporanea">
+            <div class="modal-content">
+                
+            </div>
+            <button class="close-button">Cerrar</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modal3">
+        <div class="modal-content">
+            <h2>musica Moderna</h2>
+            <table>
+                <tr>
+                    <th>aplicacion</th>
+                    <th>motivo o enfasis</th>
+                    <th>Tempos</th>
+                    <th>Ritmica</th>
+                    <th>Teoria</th>
+                </tr>
+                <tr>
+                    <td href="https://youtu.be/ji-gH_yXjGo">https://youtu.be/ji-gH_yXjGo</td>
+                </tr>
+            </table>
+            <img src="https://img.freepik.com/fotos-premium/notas-musicales-mezcladas-mezclador-color-agua-estilo-dibujos-animados_1091144-57202.jpg" alt="musica moderna">
+
+        </div>
+            <button class="close-button">Cerrar</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modal4">
+        <div class="modal-content">
+            <h2>Musica Barroca</h2>
+            <img src="https://img.freepik.com/fotos-premium/notas-musicales-mezcladas-mezclador-color-agua-estilo-dibujos-animados_1091144-57202.jpg" alt="Musca Barroca">
+        <table>
+            <tr>
+                <th>aplicacion</th>
+                <th>motivo o enfasis</th>
+                <th>Tempos</th>
+                <th>Ritmica</th>
+                <th>Teoria</th>
+            </tr>
+            <tr>
+                <td href="https://youtu.be/7SuqIL0VWSI">https://youtu.be/7SuqIL0VWSI</td>
+            </tr>
+
+        </table>
+    </div>
+
+</body>
+</html>
+            <button class="close-button">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const nextButton = document.querySelector('.carousel-button.right');
+        const prevButton = document.querySelector('.carousel-button.left');
+        const modalButtons = document.querySelectorAll('.carousel-slide img');
+        const modals = document.querySelectorAll('.modal');
+        const closeButtons = document.querySelectorAll('.close-button');
+
+        let currentIndex = 0;
+
+        const updateCarousel = (index) => {
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            track.style.transform = 'translateX(-' + index * slideWidth + 'px)';
+        };
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel(currentIndex);
+        });
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateCarousel(currentIndex);
+        });
+
+        modalButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const modalId = button.getAttribute('data-modal');
+                document.getElementById(modalId).style.display = 'flex';
+            });
+        });
+
+        closeButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                modals.forEach((modal) => {
+                    modal.style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
